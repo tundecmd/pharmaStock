@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { 
+import {
   NbInputModule,
   NbCardModule,
   NbButtonModule,
@@ -10,7 +10,7 @@ import {
   NbRadioModule,
   NbIconModule,
   NbSelectModule,
-  NbDatepickerModule
+  NbDatepickerModule,
 } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';

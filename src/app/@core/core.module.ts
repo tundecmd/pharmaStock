@@ -1,6 +1,9 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbAuthModule, NbDummyAuthStrategy, NbPasswordAuthStrategy } from '@nebular/auth';
+import {
+  NbAuthModule,
+  // NbDummyAuthStrategy,
+  NbPasswordAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
@@ -53,23 +56,23 @@ import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
 import { environment } from '../../environments/environment';
 
-const socialLinks = [
-  {
-    url: 'https://github.com/akveo/nebular',
-    target: '_blank',
-    icon: 'github',
-  },
-  {
-    url: 'https://www.facebook.com/akveo/',
-    target: '_blank',
-    icon: 'facebook',
-  },
-  {
-    url: 'https://twitter.com/akveo_inc',
-    target: '_blank',
-    icon: 'twitter',
-  },
-];
+// const socialLinks = [
+//   {
+//     url: 'https://github.com/akveo/nebular',
+//     target: '_blank',
+//     icon: 'github',
+//   },
+//   {
+//     url: 'https://www.facebook.com/akveo/',
+//     target: '_blank',
+//     icon: 'facebook',
+//   },
+//   {
+//     url: 'https://twitter.com/akveo_inc',
+//     target: '_blank',
+//     icon: 'twitter',
+//   },
+// ];
 
 const DATA_SERVICES = [
   { provide: UserData, useClass: UserService },
@@ -142,22 +145,22 @@ export const NB_CORE_PROVIDERS = [
       },
       resetPassword: {
         redirectDelay: 500,
-        strategy: 'email'
+        strategy: 'email',
       },
       logout: {
         redirectDelay: 500,
-        strategy: 'email'
+        strategy: 'email',
       },
       validation: {
         password: {
           required: true,
           minLength: 6,
-          maxLength: 14
+          maxLength: 14,
         },
         email: {
           required: true,
-        }
-      }
+        },
+      },
     },
   }).providers,
 

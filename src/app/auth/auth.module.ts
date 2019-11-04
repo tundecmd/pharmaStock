@@ -29,6 +29,6 @@ import { RegisterComponent } from './register/register.component';
     AuthRoutingModule,
 
     NbAuthModule,
-  ]
+  ],
 })
 export class AuthModule { }

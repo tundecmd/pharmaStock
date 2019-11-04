@@ -1,15 +1,15 @@
 import { Component, Inject, ChangeDetectorRef } from '@angular/core';
-import { NbLoginComponent, NbAuthSocialLink, NB_AUTH_OPTIONS, getDeepFromObject } from '@nebular/auth';
+import { NbAuthSocialLink, NB_AUTH_OPTIONS, getDeepFromObject } from '@nebular/auth';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  
+
   redirectDelay: number = 0;
   showMessages: any = {};
   strategy: string = '';
@@ -22,11 +22,11 @@ export class LoginComponent {
   rememberMe = false;
 
   // validation = {};
-  
+
   constructor(protected auth: AuthService,
               @Inject(NB_AUTH_OPTIONS) protected options = {},
                 protected cd: ChangeDetectorRef,
-                protected router: Router){
+                protected router: Router) {
     this.redirectDelay = this.getConfigValue('forms.login.redirectDelay');
     this.showMessages = this.getConfigValue('forms.login.showMessages');
     this.strategy = this.getConfigValue('forms.login.strategy');
@@ -48,7 +48,6 @@ export class LoginComponent {
       .catch((err) => {
         this.submitted = false;
         this.errors = [err];
-        console.log(err);
       });
   }
 
@@ -61,7 +60,7 @@ export class LoginComponent {
   getConfigValue(key: string): any {
     return getDeepFromObject(this.options, key, null);
   }
-  
 
-              
+
+
 }

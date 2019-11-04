@@ -17,5 +17,5 @@ export const environment = {
     projectId: 'marshallcl-app',
     storageBucket: 'marshallcl-app.appspot.com',
     messagingSenderId: '79676151726',
-  }
+  },
 };

@@ -1,4 +1,4 @@
-import { Component, Inject, ChangeDetectorRef, } from '@angular/core';
+import { Component, Inject, ChangeDetectorRef } from '@angular/core';
 import { NbAuthSocialLink, NB_AUTH_OPTIONS, getDeepFromObject } from '@nebular/auth';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'ngx-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
 
@@ -21,7 +21,7 @@ export class RegisterComponent {
   socialLinks: NbAuthSocialLink[] = [];
 
   constructor(protected auth: AuthService, @Inject(NB_AUTH_OPTIONS) protected options = {},
-  protected cd: ChangeDetectorRef, protected router: Router) { 
+  protected cd: ChangeDetectorRef, protected router: Router) {
     this.redirectDelay = this.getConfigValue('forms.register.redirectDelay');
     this.showMessages = this.getConfigValue('forms.register.showMessages');
     this.strategy = this.getConfigValue('forms.register.strategy');
@@ -42,14 +42,14 @@ export class RegisterComponent {
       .catch((err) => {
         this.submitted = false;
         this.errors = [err];
-      })
+      });
   }
 
 
   redirectToDashboard() {
     setTimeout(() => {
       this.router.navigate(['pages/dashboard']);
-    }, this.redirectDelay)
+    }, this.redirectDelay);
   }
 
   getConfigValue(key: string): any {

@@ -3,7 +3,7 @@ import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeServ
 
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil, filter } from 'rxjs/operators';
+import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   userMenu = [
     { title: 'Profile', icon: 'person-outline', data: {id: 'user-profile'} },
-    { title: 'Log out', icon: 'log-out-outline', data: {id: 'user-logout'} }
+    { title: 'Log out', icon: 'log-out-outline', data: {id: 'user-logout'} },
   ];
 
   constructor(private sidebarService: NbSidebarService,

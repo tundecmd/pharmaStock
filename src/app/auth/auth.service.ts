@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore } from '@angular/fire/firestore'
+import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   public user: Observable<firebase.User>;
@@ -16,7 +16,7 @@ export class AuthService {
     this.user = _fbAuth.authState;
     this.user.subscribe(
       (user) => {
-        if(user) {
+        if (user) {
           this.userDetails = user;
           localStorage.setItem('user', JSON.stringify(this.userDetails));
           JSON.parse(localStorage.getItem('user'));
@@ -25,8 +25,8 @@ export class AuthService {
           localStorage.setItem('user', null);
           JSON.parse(localStorage.getItem('user'));
         }
-      }
-    )
+      },
+    );
   }
 
   // main service functions
@@ -36,25 +36,25 @@ export class AuthService {
   }
 
   /* register function */
-  register(email, password, fullname, role){
+  register(email, password, fullname, role) {
     return this._fbAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((afUser) => {
         afUser.user.updateProfile({
           displayName: fullname,
-          photoURL: ""
+          photoURL: '',
         }).then(() => afUser.user.sendEmailVerification());
 
         // store user info in firestore
-        this._firestore.firestore.collection("users").doc(afUser.user.uid).set({
+        this._firestore.firestore.collection('users').doc(afUser.user.uid).set({
           uid: afUser.user.uid,
-          role: role
+          role: role,
         });
       });
   }
 
   /* isloggedin method */
   isLoggedIn() {
-    if(this.userDetails == null) {
+    if (this.userDetails == null) {
       return false;
     } else {
       return true;

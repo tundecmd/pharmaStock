@@ -23,12 +23,12 @@ export class AppComponent implements OnInit {
     this.menuService.onItemClick()
       .subscribe((event) => {
         this.onContextItemClicked(event.item.title);
-      })
+      });
   }
 
-  onContextItemClicked(title){
-    console.log('we clicked ' + title);
-    if(title === "Log out") {
+  onContextItemClicked(title) {
+
+    if (title === 'Log out') {
       this.auth.logout();
     }
   }

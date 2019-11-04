@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, Router } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { NbAuthComponent } from '@nebular/auth';
 import { LoginComponent } from './login/login.component';
@@ -21,15 +21,15 @@ export const routes: Routes = [
             {
                 path: '',
                 redirectTo: 'login',
-                pathMatch: 'full'
-            }
-        ]
-    }
+                pathMatch: 'full',
+            },
+        ],
+    },
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
 })
 
 export class AuthRoutingModule {

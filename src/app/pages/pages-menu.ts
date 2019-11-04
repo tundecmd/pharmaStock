@@ -13,18 +13,18 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'New Order',
-        link: '/pages/sales/new-order'
+        link: '/pages/sales/new-order',
       },
       {
-        title: 'Prescription Sales'
+        title: 'Prescription Sales',
       },
       {
-        title: 'Non-prescription Sales'
+        title: 'Non-prescription Sales',
       },
       {
-        title: 'Miscellaneous'
-      }
-    ]
+        title: 'Miscellaneous',
+      },
+    ],
   },
   {
     title: 'Products',
@@ -32,7 +32,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Add New Product',
-        link: '/pages/products/new-product'
+        link: '/pages/products/new-product',
       },
       {
         title: 'View All Products',
@@ -44,40 +44,40 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Product Categories',
       },
       {
-        title: 'Add/Edit Categories'
+        title: 'Add/Edit Categories',
       },
       {
-        title: 'Product Stock'
-      }
-    ]
+        title: 'Product Stock',
+      },
+    ],
   },
   {
     title: 'Customer Data',
     icon: 'briefcase-outline',
     children: [
       {
-        title: 'Registered Customers'
+        title: 'Registered Customers',
       },
       {
-        title: 'Customer Purchase History'
-      }
-    ]
+        title: 'Customer Purchase History',
+      },
+    ],
   },
   {
     title: 'Account Management',
     icon: 'people-outline',
     children: [
       {
-        title: 'Add User'
+        title: 'Add User',
       },
       {
-        title: 'View/Edit User'
+        title: 'View/Edit User',
       },
       {
-        title: 'User Roles'
-      }
-    ]
-  }
+        title: 'User Roles',
+      },
+    ],
+  },
   // {
   //   title: 'FEATURES',
   //   group: true,

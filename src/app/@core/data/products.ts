@@ -12,7 +12,7 @@ export interface Products {
     dosage: string;
 }
 
-export interface ProductsCategory{
+export interface ProductsCategory {
     $key: string;
     name: string;
 }

@@ -1,11 +1,11 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 
 import { SecureInnerPagesGuard } from './secure-inner-pages.guard';
 
 describe('SecureInnerPagesGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SecureInnerPagesGuard]
+      providers: [SecureInnerPagesGuard],
     });
   });
 

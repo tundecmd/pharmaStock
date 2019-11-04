@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductFormsService {
   public newProductForm: FormGroup;   // define form group for new products
@@ -10,7 +10,7 @@ export class ProductFormsService {
 
   constructor(public fb: FormBuilder) { }
 
-  productForm(){
+  productForm() {
     this.newProductForm = this.fb.group({
       name: ['', [Validators.required]],
       category: ['', [Validators.required]],
@@ -21,14 +21,14 @@ export class ProductFormsService {
       quantity: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       manufacturer: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      dosage: ['', [Validators.required]]
-    })
+      dosage: ['', [Validators.required]],
+    });
   }
 
-  
+
   productCategoryForm () {
     this.newProductCategoryForm = this.fb.group({
-      category_name: ['', [Validators.required, Validators.minLength(2)]]
-    })   
+      category_name: ['', [Validators.required, Validators.minLength(2)]],
+    });
   }
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { 
+import {
   NbInputModule,
   NbCardModule,
   NbButtonModule,
@@ -10,7 +10,7 @@ import {
   NbCheckboxModule,
   NbRadioModule,
   NbSelectModule,
-  NbIconModule 
+  NbIconModule,
 } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
@@ -31,11 +31,11 @@ import { NewOrdersComponent } from './new-orders/new-orders.component';
     NbRadioModule,
     SalesRoutingModule,
     NbSelectModule,
-    NbIconModule
+    NbIconModule,
   ],
   declarations: [
     SalesComponent,
-    NewOrdersComponent
+    NewOrdersComponent,
   ],
 
 })

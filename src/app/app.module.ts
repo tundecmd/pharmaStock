@@ -51,7 +51,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CoreModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'},
