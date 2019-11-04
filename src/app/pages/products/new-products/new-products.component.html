@@ -1,0 +1,129 @@
+<div class="row">
+  <div class="col-md-7">
+    <nb-card accent="primary">
+      <nb-card-header>Add New Product</nb-card-header>
+      <nb-card-body>
+        <form>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <label for="productName" class="label">Product Name</label>
+              <input type="text" nbInput fullWidth id="productName" placeholder="Enter full product name here">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <label for="dispenseMethod" class="label">Dispensary Method</label>
+              <nb-select fullWidth placeholder="Select a dispensary method" id="dispenseMethod">
+                <nb-option>Strip</nb-option>
+                <nb-option>Bottle</nb-option>
+                <nb-option>Capsule/Tablet</nb-option>
+              </nb-select>
+            </div>
+            <div class="col-sm-6">
+              <label for="productCategory" class="label">Product Category</label>
+              <nb-select fullWidth placeholder="Select a product category">
+                <nb-option>Strip</nb-option>
+                <nb-option>Bottle</nb-option>
+                <nb-option>Capsule/Tablet</nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <label for="prodDate" class="label">Production Date</label>
+              <input fullWidth nbInput placeholder="Date of Production" [nbDatepicker]="productionDate" id="prodDate">
+              <nb-datepicker #productionDate></nb-datepicker>
+            </div>
+            <div class="col-sm-6">
+              <label for="expDate" class="label">Expiry Date</label>
+              <input fullWidth nbInput placeholder="Expiry Date" [nbDatepicker]="expiryDate" id="expdate">
+              <nb-datepicker #expiryDate></nb-datepicker>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-4">
+              <label for="prodSKU" class="label">SKU</label>
+              <input fullWidth nbInput placeholder="eg: BDE2231" id="prodSKU">
+            </div>
+            <div class="col-sm-4">
+              <label for="prodQuantity" class="label">Stock Quantity</label>
+              <input fullWidth nbInput placeholder="Quantity" id="prodQuantity">
+            </div>
+            <div class="col-sm-4">
+              <label for="prodMf" class="label">Manufacturer</label>
+              <input fullWidth nbInput placeholder="Manufacturer Name" id="prodMf">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <label for="prodDesc" class="label">Product Description</label>
+              <textarea fullWidth nbInput id="prodDesc" rows="5" placeholder="Enter Full description of product here"></textarea>
+            </div>
+            <div class="col-sm-6">
+              <label for="productDosage" class="label">Dosage Information</label>
+              <textarea fullWidth nbInput rows="5" id="prodDosage" placeholder="Enter full dosage information here"></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <button nbButton fullWidth status="warning">Reset Form</button>
+            </div>
+            <div class="col-sm-6">
+              <button nbButton fullWidth status="primary">Add Product</button>
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-md-5">
+    <!-- new product category form -->
+    <nb-card accent="info">
+      <nb-card-header>New Product Category</nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="productCategoryForm" (ngSubmit)="submitCategoryData()" novalidate>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <label for="prodCatName" class="label">Category Name</label>
+              <input
+                formControlName="categoryName" 
+                fullWidth
+                nbInput
+                placeholder="Enter category name here"
+                id="prodCatName">
+                <!-- Showing errors using getter method -->
+                <p *ngIf="categoryName.touched && categoryName.invalid" class="error"><sup>*</sup>Please enter a category name</p>
+                <p *ngIf="!!categoryName.errors?.minlength" class="error"><sup>*</sup>Name shouldn't be less than 2 words</p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <button nbButton fullWidth status="warning" (click)="resetForm()">Reset Form</button>
+            </div>
+            <div class="col-sm-6">
+              <button nbButton fullWidth status="primary" type="submit" [disabled]="!productCategoryForm.valid">Add Category</button>
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+
+    <!-- recently added -->
+    <nb-flip-card>
+      <nb-card-front>
+        <nb-card accent="info">
+          <nb-card-header>Recently added Products</nb-card-header>
+          <nb-card-body></nb-card-body>
+          <nb-card-footer>Recently added Categories</nb-card-footer>
+        </nb-card>
+      </nb-card-front>
+      <nb-card-back>
+        <nb-card accent="info">
+          <nb-card-header>Recently added Categories</nb-card-header>
+          <nb-card-body></nb-card-body>
+          <nb-card-footer>Recently added Products</nb-card-footer>
+        </nb-card>
+      </nb-card-back>
+    </nb-flip-card>
+  </div>
+</div>

@@ -10,4 +10,12 @@
 
 export const environment = {
   production: false,
+  firebase: {
+    apiKey: 'AIzaSyDtyFFR9-Xqs_zDbtYKZdwbruEYalRrDOQ',
+    authDomain: 'marshallcl-app.firebaseapp.com',
+    databaseURL: 'https://marshallcl-app.firebaseio.com',
+    projectId: 'marshallcl-app',
+    storageBucket: 'marshallcl-app.appspot.com',
+    messagingSenderId: '79676151726',
+  }
 };

@@ -7,6 +7,7 @@ import { FormLayoutsComponent } from './form-layouts/form-layouts.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 
+// Define navigation links for form layout
 const routes: Routes = [
   {
     path: '',

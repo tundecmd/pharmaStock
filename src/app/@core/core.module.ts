@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
+import { NbAuthModule, NbDummyAuthStrategy, NbPasswordAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
@@ -51,6 +51,7 @@ import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
+import { environment } from '../../environments/environment';
 
 const socialLinks = [
   {
@@ -105,18 +106,58 @@ export const NB_CORE_PROVIDERS = [
   ...NbAuthModule.forRoot({
 
     strategies: [
-      NbDummyAuthStrategy.setup({
+      NbPasswordAuthStrategy.setup({
         name: 'email',
-        delay: 3000,
+        baseEndpoint: 'https://identitytoolkit.googleapis.com/v1/accounts',
+        login: {
+          endpoint: ':signInWithPassword?key=' + environment.firebase.apiKey,
+          method: 'post',
+        },
+        register: {
+          endpoint: ':signUp?key=' + environment.firebase.apiKey,
+          method: 'post',
+        },
+        requestPass: {
+          endpoint: ':sendOobCode?key=' + environment.firebase.apiKey,
+          method: 'post',
+        },
+        resetPass: {
+          endpoint: ':resetPassword?key=' + environment.firebase.apiKey,
+          method: 'post',
+        },
       }),
     ],
     forms: {
       login: {
-        socialLinks: socialLinks,
+        redirectDelay: 500,
+        strategy: 'email',
       },
       register: {
-        socialLinks: socialLinks,
+        redirectDelay: 500,
+        strategy: 'email',
       },
+      requestPassword: {
+        redirectDelay: 500,
+        strategy: 'email',
+      },
+      resetPassword: {
+        redirectDelay: 500,
+        strategy: 'email'
+      },
+      logout: {
+        redirectDelay: 500,
+        strategy: 'email'
+      },
+      validation: {
+        password: {
+          required: true,
+          minLength: 6,
+          maxLength: 14
+        },
+        email: {
+          required: true,
+        }
+      }
     },
   }).providers,
 
